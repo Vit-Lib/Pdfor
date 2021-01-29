@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <ApplicationIcon />
+    <OutputType>Exe</OutputType>
+    <StartupObject /> 
+    <Version>1.0.333</Version>
+    <Description>https://github.com/sersms/Pdfor</Description>    
+  </PropertyGroup>
+
+
+  <PropertyGroup>
+    <DocumentationFile>bin\Debug\netcoreapp2.1\Pdfor.xml</DocumentationFile>
+  </PropertyGroup>
+
+
+  
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+
+    <PackageReference Include="Microsoft.Office.Interop.Excel" Version="15.0.4795.1000" />
+    <PackageReference Include="Microsoft.Office.Interop.PowerPoint" Version="15.0.4420.1017" />
+    <PackageReference Include="Microsoft.Office.Interop.Word" Version="15.0.4797.1003" />
+    <PackageReference Include="MicrosoftOfficeCore" Version="15.0.0" />
+        
+    <!-- Sers --> 
+    <PackageReference Include="Vit.Ioc" Version="2.1.1.471" />
+    <PackageReference Include="Vit.WebHost" Version="2.1.1.471" />
+    <PackageReference Include="Vit.Orm.EntityFramework" Version="2.1.1.471" />
+    <!-- ServiceAdaptor -->
+    <PackageReference Include="ServiceAdaptor.NetCore" Version="1.1.281" />
+    <PackageReference Include="ServiceAdaptor.NetCore.MinHttp" Version="1.1.281" />
+    <PackageReference Include="ServiceAdaptor.NetCore.Sers" Version="1.1.281" />
+    <PackageReference Include="ServiceAdaptor.NetCore.Consul" Version="1.1.281" />
+  </ItemGroup>
+  
+
+
+  <ItemGroup> 
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>     
+  </ItemGroup>
+  
+    
+
+</Project>
