@@ -1,0 +1,43 @@
+ 
+-----------------------------
+libreoffice
+
+https://zhuanlan.zhihu.com/p/137097200
+https://www.jianshu.com/p/bf2a86e1ef44?from=timeline
+
+docker run -it --rm -v /root/docker/office:/root/install  centos:centos8.3.2011 /bin/bash
+
+#yum list libreoffice*
+
+# word pdf:writer_pdf_Export
+yum install libreoffice-writer.x86_64 -y
+
+# excel  pdf:calc_pdf_Export
+yum install libreoffice-calc.x86_64 -y
+
+# ppt   pdf:impress_pdf_Export
+yum install libreoffice-impress.x86_64 -y
+ 
+
+#
+yum install libreoffice-langpack-zh-Hans.x86_64 -y
+
+yum groupinstall "Fonts"  -y
+yum groupinstall "Input Methods"  -y
+
+ 
+
+---------------------
+libreoffice --help 
+
+
+
+ 
+libreoffice --headless  --convert-to pdf --outdir "/root/install/" "/root/install/a.docx"
+libreoffice --headless  --convert-to pdf --outdir "/root/install" "/root/install/xls.xls"
+libreoffice --headless  --convert-to pdf --outdir "/root/install" "/root/install/ppt.pptx"
+-----------------------------
+  
+
+
+ 

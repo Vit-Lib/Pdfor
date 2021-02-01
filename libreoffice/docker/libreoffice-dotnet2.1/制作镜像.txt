@@ -1,0 +1,34 @@
+#构建镜像
+
+# docker login -u serset -p xxxxxxxxx
+ 
+
+#把本文件所在目录下的文件夹拷贝到 /root/image 
+
+cd /home/ec2-user
+cd image  
+ 
+#构建镜像
+cd libreoffice
+docker build -t serset/libreoffice:dotnet2.1  . 
+cd ..
+ 
+#推送到镜像仓库
+docker push serset/libreoffice:dotnet2.1
+
+
+
+
+#强制删除镜像名称中包含adaptor_gateway的镜像
+# docker rmi --force $(docker images | grep libreoffice | awk '{print $3}')
+
+
+
+
+
+
+
+
+
+
+ 

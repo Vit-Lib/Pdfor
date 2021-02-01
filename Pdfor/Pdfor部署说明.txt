@@ -1,0 +1,50 @@
+
+(一) 使用LibReOffice
+---------------------------
+(x.1)LibReOffice windows环境
+
+1.安装LibReOffice
+2.环境变量添加 "C:\Program Files\LibreOffice\program"。
+按需修改为LibReOffice的安装路径，确保命令行可以运行soffice
+
+---------------------------
+(x.2)LibReOffice linux环境
+
+1.安装LibReOffice
+
+
+------------------------------------------------------
+(二) 使用Office
+---------------------------
+Office windows环境
+
+
+1.安装Office软件
+
+2.按照如下分别配置Word、Excel 、PowerPoint
+
+   （1） 控制面板 -> 管理工具 -> 组件服务
+         组件服务—— 计算机——我的电脑——DCOM配置 中找到Microsoft Word 97-2003 文档，右击“属性”
+
+		 若找不到，则按如下查找
+		 Run ->  MMC -32  -> File -> Add Remove Snap-in  -> Component Services -> Add -> OK -> Console Root -> Component Services -> Computers -> My Computer -> DCOM Config -> Microsoft Word Application
+
+   （2）
+   “标识”选项卡，选中“交互式用户”
+   “安全”选项卡，将 启动和激活权限、访问权限以及配置权限选择自定义选项 ，分别点击下方的编辑，添加Everyone 用户，然后将启动和激活的四个选项全部选中。
+
+
+
+
+
+.Net 依赖Office将Word转Pdf的实现
+https://blog.csdn.net/liwan09/article/details/90239191
+
+DCOM中找不到Office的解决办法
+https://www.cnblogs.com/BoyceLin/archive/2013/03/06/2945655.html
+
+
+
+
+
+ 

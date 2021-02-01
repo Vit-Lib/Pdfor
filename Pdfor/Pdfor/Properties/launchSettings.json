@@ -1,0 +1,23 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:4301/",
+      "sslPort": 0
+    }
+  },
+  "profiles": {
+    "web": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "index.html",
+      "applicationUrl": "http://localhost:4301/"
+    },
+    "console": {
+      "commandName": "Project",
+      "launchBrowser": false
+    }
+
+  }
+}

@@ -1,0 +1,33 @@
+﻿#构建镜像
+
+# docker login -u serset -p xxxxxxxxx
+
+#把本文件所在目录下的文件夹拷贝到image 
+
+cd /home/ec2-user/image
+
+
+#构建镜像并推送到 镜像仓库
+
+cd pdfor
+docker build -t serset/pdfor:1.0.348 -t serset/pdfor . 
+cd ..
+
+docker push serset/pdfor:1.0.348
+docker push serset/pdfor
+ 
+
+
+
+
+#强制删除镜像名称中包含pdfor的镜像
+# docker rmi --force $(docker images | grep pdfor | awk '{print $3}')
+
+
+
+
+
+
+
+
+ 
