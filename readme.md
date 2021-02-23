@@ -23,7 +23,7 @@ docker run -it --rm -p 4301:4301 serset/pdfor
 
 
 # 后台启动 
-docker run --name=pdfor --restart=always -p 4301:4301 serset/pdfor
+docker run --name=pdfor --restart=always -d -p 4301:4301 serset/pdfor
 
 # 启动后访问 http://ip:4301
 
