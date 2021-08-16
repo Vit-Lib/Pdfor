@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>pdf转换服务</title>
+
+</head>
+<body>
+    <h1>pdf转换服务</h1>
+
+    转换doc、docx、xls、xlsx、ppt、pptx 、html、txt 等为pdf文件。<br />
+    接口地址:  /Pdfor/ConvertToPdf<br />
+    <br /><br /><br />
+
+    <fieldset style="width:400px;">
+        <legend>  demo:</legend>
+        <form method="post" action="/Pdfor/ConvertToPdf" enctype="multipart/form-data" target="_blank">
+            <table style="display: table;">
+
+                <tr>
+                    <td>
+                        文件:
+                    </td>
+                    <td><input type="file" id="files" name="files"></td>
+                </tr>
+                <tr>
+                    <td colspan='2'>
+                        <div>
+                            <button type="submit">提交</button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </fieldset>
+</body>
+</html>

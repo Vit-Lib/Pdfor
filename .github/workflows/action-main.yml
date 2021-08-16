@@ -1,0 +1,133 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. 
+on:
+  
+  push:
+    # Triggers the workflow on push events but only for the master branch
+    #branches: [ master ]
+
+    # Triggers the workflow on push tag
+    tags: ['*']
+    
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Runs a set of commands using the runners shell
+      - name: Run startup.bash
+        run: |
+           set -e
+           echo start build
+           export DOCKER_USERNAME="${{ secrets.DOCKER_USERNAME  }}"
+           export DOCKER_PASSWORD="${{ secrets.DOCKER_PASSWORD }}"
+           export GIT_SSH_SECRET="${{ secrets.GIT_SSH_SECRET }}"
+           cd ./Publish/DevOps/github-bash
+           bash startup.bash
+           echo build succeed!
+           
+           export appName="pdfor"
+           
+           
+      - name: release_create
+        id: release_create
+        uses: actions/create-release@v1
+        #if: hashFiles(env.release_assetPath)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          release_name: ${{ env.release_name }}
+          tag_name: ${{ env.release_tag }}
+          draft: ${{ env.release_draft }}
+          prerelease: ${{ env.release_prerelease }}
+          body: ${{ env.release_body }}
+
+
+      # release_upload_asset
+
+      - uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.release_create.outputs.upload_url }}
+          asset_path: ${{ env.release_dirPath }}/${{ env.appName }}-docker-image-${{ env.release_version }}.zip
+          asset_name: ${{ env.appName }}-docker-image-${{ env.release_version }}.zip
+          asset_content_type: application/zip
+
+      - uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.release_create.outputs.upload_url }}
+          asset_path: ${{ env.release_dirPath }}/${{ env.appName }}-docker-deploy-${{ env.release_version }}.zip
+          asset_name: ${{ env.appName }}-docker-deploy-${{ env.release_version }}.zip
+          asset_content_type: application/zip
+
+
+
+      - uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.release_create.outputs.upload_url }}
+          asset_path: ${{ env.release_dirPath }}/${{ env.appName }}-Station(net5.0)-${{ env.release_version }}.zip
+          asset_name: ${{ env.appName }}-Station-net5.0-${{ env.release_version }}.zip
+          asset_content_type: application/zip
+
+      - uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.release_create.outputs.upload_url }}
+          asset_path: ${{ env.release_dirPath }}/${{ env.appName }}-Station(net6.0)-${{ env.release_version }}.zip
+          asset_name: ${{ env.appName }}-Station-net6.0-${{ env.release_version }}.zip
+          asset_content_type: application/zip
+
+      - uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.release_create.outputs.upload_url }}
+          asset_path: ${{ env.release_dirPath }}/${{ env.appName }}-Station(netcoreapp2.1)-${{ env.release_version }}.zip
+          asset_name: ${{ env.appName }}-Station-netcoreapp2.1-${{ env.release_version }}.zip
+          asset_content_type: application/zip
+
+      - uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.release_create.outputs.upload_url }}
+          asset_path: ${{ env.release_dirPath }}/${{ env.appName }}-Station(netcoreapp2.2)-${{ env.release_version }}.zip
+          asset_name: ${{ env.appName }}-Station-netcoreapp2.2-${{ env.release_version }}.zip
+          asset_content_type: application/zip
+
+      - uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.release_create.outputs.upload_url }}
+          asset_path: ${{ env.release_dirPath }}/${{ env.appName }}-Station(netcoreapp3.0)-${{ env.release_version }}.zip
+          asset_name: ${{ env.appName }}-Station-netcoreapp3.0-${{ env.release_version }}.zip
+          asset_content_type: application/zip
+
+      - uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.release_create.outputs.upload_url }}
+          asset_path: ${{ env.release_dirPath }}/${{ env.appName }}-Station(netcoreapp3.1)-${{ env.release_version }}.zip
+          asset_name: ${{ env.appName }}-Station-netcoreapp3.1-${{ env.release_version }}.zip
+          asset_content_type: application/zip
