@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
 	<PropertyGroup>
 		<publish>pdfor</publish>
@@ -10,7 +10,7 @@
     <ApplicationIcon />
     <OutputType>Exe</OutputType>
     <StartupObject /> 
-    <Version>1.1.0-temp</Version>
+    <Version>1.1.0</Version>
     <Description>https://github.com/serset/Pdfor</Description>    
   </PropertyGroup>
 
