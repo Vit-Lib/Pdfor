@@ -39,7 +39,7 @@ jobs:
            bash startup.bash
            echo build succeed!
            
-           export appName="pdfor"
+           echo "appName=pdfor" >> $GITHUB_ENV
            
            
       - name: release_create
