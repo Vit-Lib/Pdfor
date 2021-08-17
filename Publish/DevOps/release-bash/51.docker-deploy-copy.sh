@@ -19,7 +19,8 @@ dockerPath=$basePath/Publish/release/release/docker-deploy
 
 #----------------------------------------------
 echo "(x.3)copy dir"
-\cp -rf "$basePath/Publish/ReleaseFile/docker-deploy/." "$dockerPath"
+
+mkdir -p "$dockerPath/pdfor"
 
 \cp -f "$basePath/README.md" "$dockerPath/pdfor"
 \cp -f "$basePath/Pdfor部署说明.txt" "$dockerPath/pdfor"
