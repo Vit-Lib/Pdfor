@@ -55,11 +55,14 @@ do
 
 	#copy xml
 	for filePath in bin/Release/$netVersion/*.xml ; do \\cp -rf \$filePath \"\$publishPath/\$publishName\";done
+
 done
 
 
-#(x.4)copy dir
+#(x.4)copy files
 \cp -rf \$basePath/Publish/ReleaseFile/Station/. \"\$publishPath\"
+\cp -f \$basePath/README.md \"\$publishPath\"
+\cp -f \$basePath/Pdfor部署说明.txt \"\$publishPath\"
 
 
 "

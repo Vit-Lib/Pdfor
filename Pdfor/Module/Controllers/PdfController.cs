@@ -71,7 +71,7 @@ namespace BIMProduct.Module.Doc.Controllers
             return new EmptyResult();
         }
 
-        #region 文件转换
+        #region 保存文件至临时文件夹
         /// <summary>
         ///       wwwroot/Temp/2020-08/12/{HHmmss}_{random}_{FileName}.{txt}
         /// </summary>

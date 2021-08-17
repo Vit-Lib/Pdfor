@@ -21,6 +21,8 @@ dockerPath=$basePath/Publish/release/release/docker-deploy
 echo "(x.3)copy dir"
 \cp -rf "$basePath/Publish/ReleaseFile/docker-deploy/." "$dockerPath"
 
-\cp -rf "$publishPath/pdfor/appsettings.json" "$dockerPath/pdfor"
+\cp -f "$basePath/README.md" "$dockerPath/pdfor"
+\cp -f "$basePath/Pdfor部署说明.txt" "$dockerPath/pdfor"
 
- 
+\cp -f "$publishPath/pdfor/appsettings.json" "$dockerPath/pdfor"
+

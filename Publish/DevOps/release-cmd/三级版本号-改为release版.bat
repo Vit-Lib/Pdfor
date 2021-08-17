@@ -28,7 +28,7 @@ echo [%version%]-^>[%newVersion%]
 
  
 ::(x.5)调用工具 替换csproj文件中的版本号
-VsTool.exe replace -r --path "..\..\.." --file "*.csproj" --old "%version%" --new "%newVersion%"
+VsTool.exe replace -r --path "..\..\.." --file "*.csproj" --old "<Version>%version%</Version>" --new "<Version>%newVersion%</Version>"
 VsTool.exe replace -r --path "..\..\.." --file "packages.config" --old "%version%" --new "%newVersion%"
 
 

@@ -31,7 +31,7 @@ set newVersion=%v1%.%v2%.%v3%-temp
 echo 自动修改版本号 [%version%]-^>[%newVersion%]
 echo.
 
-VsTool.exe replace -r --path "..\..\.." --file "*.csproj" --old "%version%" --new "%newVersion%"
+VsTool.exe replace -r --path "..\..\.." --file "*.csproj" --old "<Version>%version%</Version>" --new "<Version>%newVersion%</Version>"
 VsTool.exe replace -r --path "..\..\.." --file "packages.config" --old "%version%" --new "%newVersion%"
 
 
