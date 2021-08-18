@@ -1,7 +1,7 @@
 @echo off
 
 ::(x.1)get csproj
-for /f "delims=" %%a in ('findstr /M /s /i /r "<pack/> <publish>" "..\..\..\*.csproj"') do set "csproj=%%~a"
+for /f "delims=" %%a in ('findstr /M /s /i /r "<pack> <publish>" "..\..\..\*.csproj"') do set "csproj=%%~a"
 ::echo %csproj%
 
 ::(x.2)get version
